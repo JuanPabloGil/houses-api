@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'House API', type: :request do
-  # initialize test data 
+  # initialize test data
   let!(:houses) { create_list(:house, 10) }
   let(:house_id) { houses.first.id }
 
@@ -52,7 +54,7 @@ RSpec.describe 'House API', type: :request do
   # Test suite for POST /houses
   describe 'POST /houses' do
     # valid payload
-    let(:valid_attributes) { { title: 'Correct Title', about: 'Cool House with Pool', price: 1200, category:'House' } }
+    let(:valid_attributes) { { title: 'Correct Title', about: 'Cool House with Pool', price: 1200, category: 'House' } }
 
     context 'when the request is valid' do
       before { post '/houses', params: valid_attributes }
@@ -96,7 +98,6 @@ RSpec.describe 'House API', type: :request do
       end
     end
   end
-
 
   describe 'DELETE /houses/:id' do
     before { delete "/houses/#{house_id}" }

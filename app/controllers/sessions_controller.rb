@@ -25,7 +25,8 @@ class SessionsController < ApplicationController
       }
     else
       render json: {
-        logged_in: false
+        logged_in: false,
+        not_working: @current_user
       }
     end
   end

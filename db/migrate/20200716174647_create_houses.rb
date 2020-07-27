@@ -7,6 +7,7 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.string :about
       t.string :category
       t.integer :price
+      t.integer :user_id
 
       t.timestamps
     end

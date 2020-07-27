@@ -1,5 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: %i[show update destroy]
+  include CurrentUserConcern
 
   # GET /houses
   def index
@@ -7,9 +8,14 @@ class HousesController < ApplicationController
     json_response(@houses)
   end
 
+  def myhouses
+    @houses = @current_user.houses.all
+    json_response(@houses)
+  end
+
   # POST /houses
   def create
-    @house = House.create!(house_params)
+    @house = @current_user.houses.create!(house_params)
     json_response(@house, :created)
   end
 

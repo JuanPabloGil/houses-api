@@ -16,13 +16,13 @@ class FavoritesController < ApplicationController
     @favorite = @current_user.favorites.find_by(favorite_params)
     @favorite.delete
     render json: {
-      status: "deleted"
+      status: 'deleted'
     }
   end
 
-  def is_favorite
+  def isfavorite
     @favorite = @current_user.favorites.find_by(favorite_params)
-    if @favorite === nil
+    if @favorite.nil?
       render json: {
         status: nil
       }
@@ -39,5 +39,4 @@ class FavoritesController < ApplicationController
   def favorite_params
     params.permit(:house_id, :id)
   end
-
 end

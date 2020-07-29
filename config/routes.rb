@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   
   get :logged_in, to: 'sessions#logged_in'
   get :myhouses, to: 'houses#myhouses'
-  post :is_favorite, to: 'favorites#is_favorite'
+  post :isfavorite, to: 'favorites#isfavorite'
   delete :logout, to: 'sessions#logout'
 end

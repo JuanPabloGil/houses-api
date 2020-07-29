@@ -82,7 +82,7 @@ RSpec.describe 'House API', type: :request do
       before(:each) do
         create_user
         sign_in
-        post '/houses', params: { title: 'Foobar' }
+        post '/houses', params: { title: 'Foobar', price: 1200, category: 'House' }
       end
 
       it 'returns status code 422' do
@@ -91,33 +91,20 @@ RSpec.describe 'House API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: About can't be blank, Price can't be blank, Category can't be blank/)
+          .to match(/Validation failed: About can't be blank, About The minimum length its 20 chars/)
       end
     end
   end
 
-  #   # Test suite for PUT /houses/:id
-  #   describe 'PUT /houses/:id' do
-  #     let(:valid_attributes) { { title: 'Shopping' } }
+  describe 'DELETE /houses/:id' do
+    before(:each) do
+      create_house
+      sign_in
+      delete '/houses/300'
+    end
 
-  #     context 'when the record exists' do
-  #       before { put "/houses/#{house_id}", params: valid_attributes }
-
-  #       it 'updates the record' do
-  #         expect(response.body).to be_empty
-  #       end
-
-  #       it 'returns status code 204' do
-  #         expect(response).to have_http_status(204)
-  #       end
-  #     end
-  #   end
-
-  #   describe 'DELETE /houses/:id' do
-  #     before { delete "/houses/#{house_id}" }
-
-  #     it 'returns status code 204' do
-  #       expect(response).to have_http_status(204)
-  #     end
-  #   end
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
+    end
+  end
 end

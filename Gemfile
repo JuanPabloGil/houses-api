@@ -7,11 +7,11 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'faker'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rubocop', '~>0.81.0'
-gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

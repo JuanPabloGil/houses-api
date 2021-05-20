@@ -9,7 +9,7 @@ gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faker'
 gem 'pg'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rubocop', '~>0.81.0'
 
